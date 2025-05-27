@@ -10,15 +10,15 @@ interface Props {
 const GameCard = ({ game }: Props) => {
   return (
     <>
-      <Card width={"200px"} borderRadius={10} overflow={"hidden"}>
+      <Card>
         <Image src={game.background_image} alt={game.name} />
         <CardBody>
           <Heading fontSize={"2xl"}>{game.name}</Heading>
           <HStack justifyContent={"space-between"}>
-          <PlatformIconList
-            platforms={game.parent_platforms.map((p) => p.platform)}
-          />
-          <CriticSource score={game.metacritic}/>
+            <PlatformIconList
+              platforms={game.parent_platforms.map((p) => p.platform)}
+            />
+            <CriticSource score={game.metacritic} />
           </HStack>
         </CardBody>
       </Card>
