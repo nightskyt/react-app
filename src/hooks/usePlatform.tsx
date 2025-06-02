@@ -1,4 +1,6 @@
-import useData from "./useData";
+import { useQuery } from "@tanstack/react-query";
+import apiClient from "../services/api-client";
+import { FetchResponse } from "./useData";
 
 interface Platform {
   id: number;
@@ -7,7 +9,14 @@ interface Platform {
 }
 
 const usePlatform = () => {
-  return useData<Platform>("/platforms/lists/parents");
+  return useQuery({
+    queryKey: ["platforms"],
+    queryFn: () =>
+      apiClient
+        .get<FetchResponse<Platform>>("/platforms/lists/parents")
+        .then((response) => response.data),
+    staleTime: 24 * 60 * 60 * 1000, // 24h
+  });
 };
 
 export default usePlatform;
