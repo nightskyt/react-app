@@ -1,5 +1,10 @@
 import axios from "axios";
 
+export interface FetchResponse<T> {
+  count: number;
+  results: T[];
+}
+
 const apiKey = import.meta.env.VITE_APP_API_KEY;
 
 const apiClient = axios.create({
@@ -7,6 +12,6 @@ const apiClient = axios.create({
   params: {
     key: apiKey,
   },
-})
+});
 
 export default apiClient;
