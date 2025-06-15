@@ -2,11 +2,15 @@ import { useInfiniteQuery } from "@tanstack/react-query";
 import { GameQuery } from "../gameQuery/gameQueryReducer";
 import APIClient from "../services/api-client";
 import { Platform } from "./usePlatform";
+import { Genre } from "./useGemres";
 
 export interface Game {
   id: number;
   slug: string;
   name: string;
+  description_raw: string;
+  released: string;
+  genres: Genre[];
   background_image: string;
   parent_platforms: { platform: Platform }[];
   metacritic: number;

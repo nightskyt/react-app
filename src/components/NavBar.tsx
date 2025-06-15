@@ -5,7 +5,7 @@ import SearchInput from "./SearchInput";
 
 function NarvBar() {
   return (
-    <HStack justifyContent={"space-between"}>
+    <HStack justifyContent={"space-between"} paddingY={3}>
       <Image src={logo} boxSize="60px" />
       <SearchInput />
       <ColorModeSwitch />
