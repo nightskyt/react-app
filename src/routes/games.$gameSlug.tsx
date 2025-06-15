@@ -1,10 +1,18 @@
-import { Text } from "@chakra-ui/react";
+import { Spinner, Text } from "@chakra-ui/react";
+import GameDetails from "../components/GameDetails";
+import useGame from "../hooks/useGame";
 
 export const Route = createFileRoute({
-  component: RouteComponent,
+  component: GameDetailsComponent,
 });
 
-function RouteComponent() {
+function GameDetailsComponent() {
   const { gameSlug } = Route.useParams();
-  return <Text>{gameSlug}</Text>;
+  const { data: game, isLoading } = useGame(gameSlug);
+
+  if (isLoading) return <Spinner />;
+
+  if (!game) return <Text>Game not found</Text>;
+
+  return <GameDetails game={game} />;
 }
