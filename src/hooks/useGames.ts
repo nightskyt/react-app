@@ -4,6 +4,13 @@ import APIClient from "../services/api-client";
 import { Platform } from "./usePlatform";
 import { Genre } from "./useGemres";
 
+export interface Trailer {
+    id: number;
+    name: string;
+    preview: string;
+    data: {480: string};
+}
+
 export interface Game {
   id: number;
   slug: string;

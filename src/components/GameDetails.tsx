@@ -2,6 +2,7 @@ import { Box, Heading } from "@chakra-ui/react";
 import { Game } from "../hooks/useGames";
 import ExpendableText from "./ExpendableText";
 import GameAttributes from "./GameAttributes";
+import GameTrailers from "./GameTrailers";
 
 interface Props {
   game: Game;
@@ -15,6 +16,7 @@ const GameDetails = ({ game }: Props) => {
       </Heading>
       <ExpendableText text={game.description_raw} />
       <GameAttributes game={game} />
+      <GameTrailers id={game.id} />
     </Box>
   );
 };
