@@ -1,5 +1,5 @@
 import { GridItem, Heading, SimpleGrid, Text } from "@chakra-ui/react";
-import { Game } from "../hooks/useGames";
+import { Game } from "../types/game";
 import CriticSource from "./CriticSource";
 
 interface Props {

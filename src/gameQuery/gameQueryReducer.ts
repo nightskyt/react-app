@@ -1,9 +1,4 @@
-export interface GameQuery {
-  genreId?: number;
-  platformId?: number;
-  sortOrder?: string;
-  searchText?: string;
-}
+import { GameQuery } from "../types/game";
 
 type SetGenreIdAction = {
   type: "SET_GENRE_ID";

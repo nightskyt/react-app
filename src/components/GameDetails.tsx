@@ -1,5 +1,5 @@
 import { Heading } from "@chakra-ui/react";
-import { Game } from "../hooks/useGames";
+import { Game } from "../types/game";
 import ExpendableText from "./ExpendableText";
 import GameAttributes from "./GameAttributes";
 

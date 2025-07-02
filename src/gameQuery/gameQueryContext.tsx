@@ -1,8 +1,6 @@
 import { createContext, Dispatch, ReactNode, useReducer } from "react";
-import gameQueryReducer, {
-  GameQuery,
-  GameQueryAction,
-} from "./gameQueryReducer";
+import { GameQuery } from "../types/game";
+import gameQueryReducer, { GameQueryAction } from "./gameQueryReducer";
 
 const GameQueryContext = createContext<GameQuery>({} as GameQuery);
 const GameQueryDispatchContext = createContext<Dispatch<GameQueryAction>>(
@@ -27,3 +25,4 @@ const GameQueryProvider = ({ children }: Props) => {
 
 export default GameQueryProvider;
 export { GameQueryContext, GameQueryDispatchContext };
+
