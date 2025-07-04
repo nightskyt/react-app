@@ -1,9 +1,9 @@
-import { Heading } from "@chakra-ui/react";
+import { GridItem, Heading, SimpleGrid } from "@chakra-ui/react";
 import { Game } from "../types/game";
 import ExpendableText from "./ExpendableText";
 import GameAttributes from "./GameAttributes";
-import GameTrailer from "./GameTrailer";
 import GameScreenshots from "./GameScreenshots";
+import GameTrailer from "./GameTrailer";
 
 interface Props {
   game: Game;
@@ -11,15 +11,17 @@ interface Props {
 
 const GameDetails = ({ game }: Props) => {
   return (
-    <>
-      <Heading as="h1" size="xl" mb={2}>
-        {game.name}
-      </Heading>
-      <ExpendableText text={game.description_raw} />
-      <GameAttributes game={game} />
-      <GameTrailer gameId={game.id} />
-      <GameScreenshots gameId={game.id} />
-    </>
+    <SimpleGrid columns={{ base: 1, md: 2 }} spacing={5}>
+      <GridItem>
+        <Heading>{game.name}</Heading>
+        <ExpendableText text={game.description_raw} />
+        <GameAttributes game={game} />
+      </GridItem>
+      <GridItem>
+        <GameTrailer gameId={game.id} />
+        <GameScreenshots gameId={game.id} />
+      </GridItem>
+    </SimpleGrid>
   );
 };
 
